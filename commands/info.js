@@ -10,19 +10,19 @@ module.exports = async (message) => {
   const memUsage = process.memoryUsage();
   const memMB = Math.round(memUsage.heapUsed / 1024 / 1024);
   
-  const infoText = `*${config.botName} - Info*\n\n` +
-    `📛 Name: ${config.botName}\n` +
-    `🔢 Version: 1.0.0\n` +
-    `⏰ Uptime: ${hours}h ${minutes}m ${seconds}s\n` +
-    `💾 Memory: ${memMB} MB\n` +
-    `🖥️ Platform: ${os.platform()}\n` +
-    `📦 Node.js: ${process.version}\n\n` +
-    `*Features:*\n` +
-    `🤖 AI Chat: ${config.features.ai ? '✅' : '❌'}\n` +
-    `🌤️ Weather: ${config.features.weather ? '✅' : '❌'}\n` +
-    `😂 Jokes: ${config.features.jokes ? '✅' : '❌'}\n` +
-    `💬 Quotes: ${config.features.quotes ? '✅' : '❌'}\n\n` +
-    `_Made with ❤️ by DAXXTEAM_`;
+  const infoText = `*🚀 ${config.botName} - Məʟᴜᴍᴀᴛʟᴀʀ 🚀*\n\n` +
+    `📛 Aᴅı: ${config.botName}\n` +
+    `🔢 Vᴇʀsɪʏᴀ: 1.0.0 🛠️\n` +
+    `⏰ Aᴋᴛɪᴠʟɪᴋ: ${hours}s ${minutes}ᴅ ${seconds}s ⚡\n` +
+    `💾 Yᴀᴅᴅᴀş: ${memMB} MB 🧠\n` +
+    `🖥️ Pʟᴀᴛғᴏʀᴍᴀ: ${os.platform()} 💻\n` +
+    `📦 Nᴏᴅᴇ.ᴊs: ${process.version} 🏗️\n\n` +
+    `*✨ Özəʟʟɪᴋʟəʀ ✨*\n` +
+    `🤖 AI Çᴀᴛ: ${config.features.ai ? '✅' : '❌'}\n` +
+    `🌤️ Hᴀᴠᴀ: ${config.features.weather ? '✅' : '❌'}\n` +
+    `🗿 Zᴀʀᴀғᴀᴛʟᴀʀ: ${config.features.jokes ? '✅' : '❌'}\n` +
+    `💬 Sɪᴛᴀᴛʟᴀʀ: ${config.features.quotes ? '✅' : '❌'}\n\n` +
+    `_❤️ DAXXTEAM ᴛəʀəғɪɴᴅəɴ sᴇᴠɢɪʏʟə ʜᴀᴢıʀʟᴀɴᴅı ✨_`;
   
   await message.reply(infoText);
 };
