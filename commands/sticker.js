@@ -5,7 +5,7 @@ module.exports = async (message) => {
   const targetMsg = quotedMsg || message;
   
   if (!targetMsg.hasMedia) {
-    return message.reply('Please send an image or reply to an image with /sticker');
+    return message.reply('Zəʜᴍəᴛ ᴏʟᴍᴀsᴀ sᴛɪᴋᴇʀ üçüɴ şəᴋɪʟ ɢöɴᴅəʀɪɴ ᴠə ʏᴀ şəᴋʟə /sticker ʏᴀᴢᴀʀᴀǫ ᴄᴀᴠᴀʙ ᴠᴇʀɪɴ. 🖼️');
   }
   
   try {
@@ -14,7 +14,7 @@ module.exports = async (message) => {
     const media = await targetMsg.downloadMedia();
     
     if (!media || !media.mimetype.startsWith('image/')) {
-      return message.reply('Please send a valid image.');
+      return message.reply('Zəʜᴍəᴛ ᴏʟᴍᴀsᴀ ᴅüzɢüɴ ʙɪʀ şəᴋɪʟ ɢöɴᴅəʀɪɴ. ⚠️');
     }
     
     await message.reply(media, message.from, {
@@ -28,6 +28,6 @@ module.exports = async (message) => {
   } catch (error) {
     console.error('Sticker Error:', error.message);
     await message.react('❌');
-    await message.reply('Could not create sticker. Please try with a different image.');
+    await message.reply('Sᴛɪᴋᴇʀ ʏᴀʀᴀᴅıʟᴀ ʙɪʟᴍəᴅɪ. Zəʜᴍəᴛ ᴏʟᴍᴀsᴀ ʙᴀşǫᴀ şəᴋɪʟ ʏᴏxʟᴀʏıɴ. 😔');
   }
 };
