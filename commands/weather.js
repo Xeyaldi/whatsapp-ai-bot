@@ -3,12 +3,12 @@ const config = require('../config');
 
 module.exports = async (message, args) => {
   if (!config.features.weather) {
-    return message.reply('Weather feature is disabled.');
+    return message.reply('Hᴀᴠᴀ ᴍəʟᴜᴍᴀᴛı ғᴜɴᴋsɪʏᴀsı ᴅᴇᴀᴋᴛɪᴠᴅɪʀ. 🚫');
   }
   
   const city = args.join(' ');
   if (!city) {
-    return message.reply('Please provide a city name. Example: /weather Mumbai');
+    return message.reply('Zəʜᴍəᴛ ᴏʟᴍᴀsᴀ şəʜəʀ ᴀᴅı ǫᴇʏᴅ ᴇᴅɪɴ. Nüᴍᴜɴə: /weather ʙəʀᴅə 🏙️');
   }
   
   try {
@@ -23,14 +23,14 @@ module.exports = async (message, args) => {
     const current = data.current_condition[0];
     const location = data.nearest_area[0];
     
-    const weatherText = `*Weather in ${location.areaName[0].value}, ${location.country[0].value}*\n\n` +
-      `🌡️ Temperature: ${current.temp_C}°C (${current.temp_F}°F)\n` +
-      `🌤️ Condition: ${current.weatherDesc[0].value}\n` +
-      `💨 Wind: ${current.windspeedKmph} km/h ${current.winddir16Point}\n` +
-      `💧 Humidity: ${current.humidity}%\n` +
-      `👁️ Visibility: ${current.visibility} km\n` +
-      `🌅 UV Index: ${current.uvIndex}\n\n` +
-      `_Updated: ${new Date().toLocaleString('en-IN')}_`;
+    const weatherText = `*🌈 ${location.areaName[0].value}, ${location.country[0].value} üçüɴ ʜᴀᴠᴀ ᴅᴜʀᴜᴍᴜ*\n\n` +
+      `🌡️ **Tᴇᴍᴘᴇʀᴀᴛᴜʀ:** ${current.temp_C}°C\n` +
+      `🌤️ **Vəᴢɪʏʏəᴛ:** ${current.weatherDesc[0].value} ✨\n` +
+      `💨 **Küləᴋ:** ${current.windspeedKmph} ᴋᴍ/s ${current.winddir16Point} 🌪️\n` +
+      `💧 **Rüᴛᴜʙəᴛ:** ${current.humidity}% ☁️\n` +
+      `👁️ **Görüɴüş:** ${current.visibility} ᴋᴍ 🌫️\n` +
+      `🌅 **UV İɴᴅᴇᴋsɪ:** ${current.uvIndex} ☀️\n\n` +
+      `_📅 Yᴇɴɪʟəɴᴅɪ: ${new Date().toLocaleString('az-AZ')}_`;
     
     await message.react('✅');
     await message.reply(weatherText);
@@ -38,6 +38,6 @@ module.exports = async (message, args) => {
   } catch (error) {
     console.error('Weather Error:', error.message);
     await message.react('❌');
-    await message.reply(`Could not fetch weather for "${city}". Please check the city name.`);
+    await message.reply(`"${city}" üçüɴ ʜᴀᴠᴀ ᴍəʟᴜᴍᴀᴛı ᴛᴀᴘıʟᴍᴀᴅı. Zəʜᴍəᴛ ᴏʟᴍᴀsᴀ şəʜəʀ ᴀᴅıɴı ᴅüzɢüɴ ǫᴇʏᴅ ᴇᴅɪɴ. ⚠️`);
   }
 };
