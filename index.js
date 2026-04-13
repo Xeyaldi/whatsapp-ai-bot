@@ -13,13 +13,13 @@ const stickerCmd = require('./commands/sticker');
 
 console.log(`
 ╔═══════════════════════════════════════╗
-║     WhatsApp AI Bot by DAXXTEAM       ║
-║         Version 1.0.0                  ║
+║       🚀 HT BOTS AI WHATSAPP 🚀       ║
+║             Vᴇʀsɪʏᴀ 1.0.0             ║
 ╚═══════════════════════════════════════╝
 `);
 
 const client = new Client({
-  authStrategy: new LocalAuth({ clientId: 'whatsapp-ai-bot' }),
+  authStrategy: new LocalAuth({ clientId: 'ht-ai-bot' }),
   puppeteer: {
     headless: true,
     args: [
@@ -35,36 +35,36 @@ const client = new Client({
 });
 
 client.on('qr', (qr) => {
-  console.log('\n📱 Scan this QR code with WhatsApp:\n');
+  console.log('\n📱 QR Kᴏᴅᴜ WʜᴀᴛsAᴘᴘ ɪʟə sᴋᴀɴ ᴇᴅɪɴ:\n');
   qrcode.generate(qr, { small: true });
-  console.log('\nOpen WhatsApp > Settings > Linked Devices > Link a Device\n');
+  console.log('\nWʜᴀᴛsAᴘᴘ > Sᴏzʟəᴍəʟəʀ > Əʟᴀᴠə Cɪʜᴀᴢʟᴀʀ > Cɪʜᴀᴢı Bağʟᴀ\n');
 });
 
 client.on('loading_screen', (percent, message) => {
-  console.log(`Loading: ${percent}% - ${message}`);
+  console.log(`Yüᴋʟəɴɪʀ: ${percent}% - ${message}`);
 });
 
 client.on('authenticated', () => {
-  console.log('✅ Authentication successful!');
+  console.log('✅ Gɪʀɪş ᴜğᴜʀʟᴜᴅᴜʀ!');
 });
 
 client.on('auth_failure', (msg) => {
-  console.error('❌ Authentication failed:', msg);
+  console.error('❌ Gɪʀɪş ʙᴀş ᴛᴜᴛᴍᴀᴅı:', msg);
   process.exit(1);
 });
 
 client.on('ready', () => {
   console.log(`
 ╔═══════════════════════════════════════╗
-║       ✅ Bot is ready to use!          ║
+║      ✅ HT BOT İsᴛɪғᴀᴅəʏə Hᴀᴢıʀᴅıʀ!   ║
 ║                                        ║
-║   Commands: ${config.prefix}help              ║
+║   Əᴍʀʟəʀ: ${config.prefix}help                 ║
 ╚═══════════════════════════════════════╝
 `);
 });
 
 client.on('disconnected', (reason) => {
-  console.log('❌ Bot disconnected:', reason);
+  console.log('❌ Bᴏᴛ ᴅᴀʏᴀɴᴅı:', reason);
   process.exit(1);
 });
 
@@ -87,25 +87,23 @@ client.on('message', async (message) => {
     const body = message.body.trim();
     
     if (!body.startsWith(config.prefix)) {
-      if (config.features.ai && config.openaiKey && body.length > 0) {
-      }
       return;
     }
     
     const args = body.slice(config.prefix.length).trim().split(/\s+/);
     const commandName = args.shift().toLowerCase();
     
-    console.log(`[${new Date().toLocaleString()}] Command: ${commandName} from ${message.from}`);
+    console.log(`[${new Date().toLocaleString()}] Əᴍʀ: ${commandName} | Göɴᴅəʀəɴ: ${message.from}`);
     
     const command = commands[commandName];
     if (command) {
       await command(message, args);
     } else {
-      await message.reply(`Unknown command: ${commandName}\n\nType ${config.prefix}help for available commands.`);
+      await message.reply(`Bᴇʟə ʙɪʀ əᴍʀ ʏᴏxᴅᴜʀ: ${commandName}\n\nMöᴠᴄᴜᴅ əᴍʀʟəʀ üçüɴ ${config.prefix}help ʏᴀᴢıɴ. ✨`);
     }
     
   } catch (error) {
-    console.error('Message handling error:', error);
+    console.error('Mesaj xətası:', error);
   }
 });
 
@@ -114,12 +112,12 @@ client.on('message_create', async (message) => {
     const uptime = process.uptime();
     const hours = Math.floor(uptime / 3600);
     const minutes = Math.floor((uptime % 3600) / 60);
-    await message.reply(`🤖 Bot Status: Online\n⏰ Uptime: ${hours}h ${minutes}m`);
+    await message.reply(`🤖 HT Bᴏᴛ Sᴛᴀᴛᴜs: Oɴʟɪɴᴇ ✅\n⏰ Aᴋᴛɪᴠʟɪᴋ: ${hours}s ${minutes}ᴅ`);
   }
 });
 
 process.on('SIGINT', async () => {
-  console.log('\n🛑 Shutting down bot...');
+  console.log('\n🛑 Bᴏᴛ söɴᴅürüʟüʀ...');
   await client.destroy();
   process.exit(0);
 });
@@ -128,5 +126,5 @@ process.on('unhandledRejection', (error) => {
   console.error('Unhandled promise rejection:', error);
 });
 
-console.log('🚀 Starting WhatsApp AI Bot...\n');
+console.log('🚀 HT AI Bᴏᴛ ʙᴀşʟᴀᴅıʟıʀ...\n');
 client.initialize();
