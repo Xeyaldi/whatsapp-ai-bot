@@ -10,16 +10,16 @@ const conversationHistory = new Map();
 
 module.exports = async (message, args) => {
   if (!config.features.ai) {
-    return message.reply('AI feature is disabled.');
+    return message.reply('Süɴɪ ɪɴᴛᴇʟʟᴇᴋᴛ ғᴜɴᴋsɪʏᴀsı ᴅᴇᴀᴋᴛɪᴠᴅɪʀ.');
   }
   
   if (!config.openaiKey) {
-    return message.reply('OpenAI API key not configured. Please add OPENAI_API_KEY to .env file.');
+    return message.reply('OᴘᴇɴAI API ᴀçᴀʀı ᴛᴀᴘıʟᴍᴀᴅı. Zəʜᴍəᴛ ᴏʟᴍᴀsᴀ .env ғᴀʏʟıɴᴀ OPENAI_API_KEY əʟᴀᴠə ᴇᴅɪɴ.');
   }
   
   const query = args.join(' ');
   if (!query) {
-    return message.reply('Please provide a question. Example: /ai What is JavaScript?');
+    return message.reply('Zəʜᴍəᴛ ᴏʟᴍᴀsᴀ ʙɪʀ sᴜᴀʟ ǫᴇʏᴅ ᴇᴅɪɴ. Nüᴍᴜɴə: /ai JᴀᴠᴀSᴄʀɪᴘᴛ nəᴅɪʀ?');
   }
   
   try {
@@ -39,7 +39,7 @@ module.exports = async (message, args) => {
       messages: [
         { 
           role: 'system', 
-          content: `You are ${config.botName}, a helpful WhatsApp assistant. Keep responses concise and friendly. Use emojis occasionally.` 
+          content: `Səɴ ${config.botName}-sᴀɴ, ғᴀʏᴅᴀʟı ʙɪʀ WʜᴀᴛsAᴘᴘ ᴋöᴍəᴋçɪsɪsəɴ. Cᴀᴠᴀʙʟᴀʀı ǫısᴀ ᴠə ᴍᴇʜʀɪʙᴀɴ sᴀxʟᴀ. Aʀᴀᴅᴀ ᴇᴍᴏᴊɪləʀᴅəɴ ɪsᴛɪғᴀᴅə ᴇᴛ.` 
         },
         ...history
       ],
@@ -58,6 +58,6 @@ module.exports = async (message, args) => {
   } catch (error) {
     console.error('AI Error:', error.message);
     await message.react('❌');
-    await message.reply('Sorry, AI service is temporarily unavailable. Please try again later.');
+    await message.reply('Bᴀğışʟᴀʏıɴ, süɴɪ ɪɴᴛᴇʟʟᴇᴋᴛ xɪᴅᴍəᴛɪ ᴍüᴠəǫǫəᴛɪ ᴏʟᴀʀᴀǫ əʟçᴀᴛᴍᴀᴢᴅıʀ. Sᴏɴʀᴀ ʏᴇɴɪᴅəɴ ʏᴏxʟᴀʏıɴ.');
   }
 };
